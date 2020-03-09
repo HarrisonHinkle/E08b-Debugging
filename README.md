@@ -1,17 +1,14 @@
 # E08b-Debugging
 
-As usual, Fork and Clone this repository.
+This was an exercise in my Game Technolgy Course at IU where we practiced debugging. We were given a Godot file with a simple 2D platformer inside and our goal was to find an fix 8 bugs placed in there by our instructor. 
 
-This exercise is an opportunity for you to debug syntax, interpreter, and other runtime errors in a fairly-complex project. Some of the syntax and concepts represented in this code may seem foreign or advanced, but if you work systematically, you should be able to address the problems in this code.
+In the end, these were the 8 fixes I made:
 
-This exercise was adapted from the excellent platformer tutorial developed by GDQuest. Once you have corrected the problems, I hope this will provide a starting place for your project (if you have been struggling to get started).
-
-I have introduced eight errors (of different types) into the scripts in this project. Your assignment is to find and correct those errors. Some of them are syntax or interpreter errors, which will prevent the program from running at all. Others are runtime or behavioral errors which may require a little more work to find.
-
-The project is associated with a tutorial (both a free and paid version). The free version is in two parts and is available here:
- * [Make Your First 2D Game with Godot: Player and Enemy (beginner tutorial part 1)](https://www.youtube.com/watch?v=Mc13Z2gboEk)
- * [Make Your First 2D Game with Godot: Coins, Portals, and Levels (beginner tutorial part 2)](https://www.youtube.com/watch?v=6ziIyx60N6I)
-
-The original source code is available on GitHub, but please only use it as a point of comparison after you have exhausted all other options.
-
-When you have found all eight errors (one of them is on multiple lines), commit your changes, and turn in the URL of your repository on Canvas.
+1.	Changed line 24 of PlayerData.gd from deaths = new_scores to deaths = new_value so it wouldn’t say a variable is undeclared 
+2.	Fixed indentation on lines 22 and 23 of Portal2D
+3.	Changed sytanx error on UserInterface.gd by changing line 37 from score_label.Text = “Score: %s" % PlayerData.score to score_label.text = "Score: %s" % PlayerData.score
+4.	Deleted line 20 on PlayerData.gd because it was locking the players score to 5 
+5.	Toggled visibility on the enemy sprite so it could be seen in game
+6.	Deleted line 17 on enemy.gd as it made enemies float into the sky
+7.	Changed line 8 of EndScreen.gd from result.text = result.text % [PlayerData.Score, PlayerData.deaths] to result.text = result.text % [PlayerData.score, PlayerData.deaths] so it wouldn’t result in an error
+8.	Changed line 53 of Player.gd from PlayerData.deaths += 10 to PlayerData.deaths += 1 so it wouldn’t count each player death as ten player deaths
